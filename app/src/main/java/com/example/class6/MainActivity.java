@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextToSpeech t1;
     EditText ed1;
-    Button b1;
+    Button b1, staticDataPageButton;
     ImageButton ib1;
 
     @Override
@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         ed1= findViewById(R.id.editText);
         b1= findViewById(R.id.button);
+        staticDataPageButton = findViewById(R.id.staticDataPageButton);
         ib1 = findViewById(R.id.speaker);
 
         t1=new TextToSpeech(getApplicationContext(), status1 -> {
@@ -45,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
             String toSpeak = ed1.getText().toString();
             Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
             t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+        });
 
+        staticDataPageButton.setOnClickListener(task1 -> {
             startActivity(new Intent(MainActivity.this, CardActivity.class));
         });
 
