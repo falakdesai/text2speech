@@ -2,6 +2,7 @@ package com.example.class6;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
@@ -44,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             String toSpeak = ed1.getText().toString();
             Toast.makeText(getApplicationContext(), toSpeak,Toast.LENGTH_SHORT).show();
             t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
+            startActivity(new Intent(MainActivity.this, CardActivity.class));
         });
 
     }
